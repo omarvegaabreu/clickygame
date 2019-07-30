@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
-// import { type } from "os";
 
 export default function Card({
   handleClick,
