@@ -78,6 +78,7 @@ export default function App() {
     <div>
       <h1>Memory Game</h1>
       <h2>Match the cards!</h2>
+
       <Board
         dimension={dimension}
         cards={cards}
