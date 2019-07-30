@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
+// import { type } from "os";
 
 export default function Card({
   handleClick,
   id,
+  type,
   flipped,
-  back,
-  front,
   height,
   width
 }) {
@@ -24,7 +24,7 @@ export default function Card({
             width
           }}
           className={flipped ? "front" : "back"}
-          src={flipped ? front : back}
+          src={flipped ? `/public/img/${type}.png` : `/public/img/cardback.png`}
           alt=""
         />
       </div>
@@ -36,8 +36,7 @@ Card.propTypes = {
   handleClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   flipped: PropTypes.string.isRequired,
-  back: PropTypes.string.isRequired,
-  front: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   width: PropTypes.number.isRequired
 };
