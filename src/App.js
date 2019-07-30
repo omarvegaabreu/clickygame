@@ -3,11 +3,12 @@ import "./App";
 import "./index";
 import Board from "./components/board/index";
 import initializeDeck from "./components/deck/deck";
+import { isArgumentPlaceholder } from "@babel/types";
 
 function App() {
-  const [flipped, setFlipped] = useState([]);
   const [cards, setCards] = useState([]);
-  const [dimesion, setDimension] = useState(400);
+  const [flipped, setFlipped] = useState([]);
+  const [dimension, setDimension] = useState(400);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
 
@@ -22,7 +23,36 @@ function App() {
     return () => window.removeEventListener("resize", resizeListener);
   });
 
-  const handleClick = id => setFlipped([...flipped, id]);
+  const handleClick = id => {
+    setDisabled(true);
+    if (flipped.length === 0) {
+      setFlipped([id]);
+      setDisabled(false);
+    } else {
+      if (sameCardClicked(id)) return;
+      setFlipped([flipped[0], id]);
+
+      if (isMatch(id)) {
+        setSolved([...solved, flipped[0], id]);
+        resetCards();
+      } else {
+        setTimeout(resetCards, 2000);
+      }
+    }
+  };
+
+  const resetCards = () => {
+    setFlipped([]);
+    setDisabled(false);
+  };
+
+  const sameCardClicked = id => flipped.includes(id);
+
+  const isMatch = id => {
+    const clickedCard = cards.find(card => card.id === id);
+    const flippedCard = cards.find(card => flipped[0] === card.id);
+    return flippedCard.type === clickedCard.type;
+  };
 
   const resizeBoard = () => {
     setDimension(
@@ -38,10 +68,12 @@ function App() {
       <h1>Memory Game</h1>
       <h2>Match the cards!</h2>
       <Board
-        dimension={dimesion}
+        dimension={dimension}
         cards={cards}
         flipped={flipped}
         handleClick={handleClick}
+        disabled={disabled}
+        solved={solved}
       />
     </div>
   );
