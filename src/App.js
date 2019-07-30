@@ -3,9 +3,8 @@ import "./App";
 import "./index";
 import Board from "./components/board/index";
 import initializeDeck from "./components/deck/deck";
-import { isArgumentPlaceholder } from "@babel/types";
 
-function App() {
+export default function App() {
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [dimension, setDimension] = useState(400);
@@ -16,6 +15,10 @@ function App() {
     resizeBoard();
     setCards(initializeDeck());
   }, []);
+
+  useEffect(() => {
+    preloadImages();
+  }, cards);
 
   useEffect(() => {
     const resizeListener = window.addEventListener("resize", resizeBoard);
@@ -39,6 +42,14 @@ function App() {
         setTimeout(resetCards, 2000);
       }
     }
+  };
+
+  const preloadImages = () => {
+    cards.map(card => {
+      const src = `/img/${card.type}.png`;
+      console.log(src);
+      new Image().src = src;
+    });
   };
 
   const resetCards = () => {
@@ -78,5 +89,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
