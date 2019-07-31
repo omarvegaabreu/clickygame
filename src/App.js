@@ -37,6 +37,8 @@ export default function App() {
 
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
+        // setFlipped([]);
+        // setDisabled(false);
         resetCards();
       } else {
         setTimeout(resetCards, 2000);
