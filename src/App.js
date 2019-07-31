@@ -5,11 +5,11 @@ import Board from "./components/board/index";
 import initializeDeck from "./components/deck/deck";
 
 export default function App() {
+  const [dimension, setDimension] = useState(400);
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
-  const [dimension, setDimension] = useState(400);
-  const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
+  const [solved, setSolved] = useState([]);
 
   useEffect(() => {
     resizeBoard();
@@ -17,8 +17,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    preloadImages();
-  }, cards);
+    preloadImages(cards);
+  });
 
   useEffect(() => {
     const resizeListener = window.addEventListener("resize", resizeBoard);
@@ -47,8 +47,8 @@ export default function App() {
   const preloadImages = () => {
     cards.map(card => {
       const src = `/img/${card.type}.png`;
-      console.log(src);
-      new Image().src = src;
+      // console.log(src);
+      return (new Image().src = src);
     });
   };
 

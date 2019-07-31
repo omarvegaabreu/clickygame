@@ -15,7 +15,7 @@ export default function Card({
   return (
     <div
       className={`flip-container ${flipped ? "flipped" : " "}`}
-      style={{ width, height }}
+      style={{ height, width }}
       onClick={() => (disabled ? null : handleClick(id))}
     >
       <div className="flipper">

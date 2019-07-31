@@ -16,8 +16,8 @@ export default function Board({
       {cards.map(card => (
         <Card
           key={card.id}
-          type={card.type}
           id={card.id}
+          type={card.type}
           width={dimension / 4.5}
           height={dimension / 4.5}
           flipped={flipped.includes(card.id)}
