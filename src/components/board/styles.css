@@ -2,6 +2,19 @@
   margin: 0px;
   padding: 0px;
 }
-body {
+html {
   width: 100%;
+  background: url("/backgroundImg/62394d753859943e6a1a36443ef78795.gif") repeat
+    no-repeat;
+  color: white;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-size: 60px;
+  font-family: "Futura";
+  color: #fff;
+
+  text-align: center;
 }

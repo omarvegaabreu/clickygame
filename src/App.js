@@ -79,7 +79,7 @@ export default function App() {
   return (
     <div>
       <h1>Memory Game</h1>
-      <h2>Match the cards!</h2>
+      <h2>Match the cards</h2>
 
       <Board
         dimension={dimension}

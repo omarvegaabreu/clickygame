@@ -2,12 +2,16 @@
   perspective: 1000px;
   display: inline-block;
   border: 1px solid white;
-  background: black;
+  /* background: black; */
+  width: 400px;
+  height: 200px;
+  background: url("/backgroundImg/62394d753859943e6a1a36443ef78795.gif") center;
+  border: solid 2px #fff;
 }
 
 .flip-container.flipped .flipper {
   transform: rotate(360deg);
-  transition-duration: 0.8s;
+  transition-duration: 0.9s;
 }
 .flipper {
   transition: 0.6s;
