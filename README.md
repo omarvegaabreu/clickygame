@@ -1,3 +1,5 @@
+![](public/img/clickygamehome.jpg)
+
 ### Overview:
 
 This is a memory game using react. It will randomly change the spots where the images load, and you will need to remember where the images are in order to match with the correct techonology. This application was deployed in netlify..
