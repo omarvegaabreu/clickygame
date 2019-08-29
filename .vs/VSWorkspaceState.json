@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\board",
+    "\\src\\components\\card",
+    "\\src\\components\\deck"
+  ],
+  "SelectedNode": "\\src\\components\\deck\\deck.js",
+  "PreviewInSolutionExplorer": false
+}
